@@ -1,0 +1,111 @@
+USE sprint1;
+
+CREATE TABLE pessoa (
+idPessoa int primary key auto_increment,
+nome varchar (40),
+dtNasc date);
+
+INSERT INTO pessoa VALUES
+(default, 'Rayssa', '2000-04-14');
+
+INSERT INTO pessoa VALUES
+(default, 'Julia', '2006-09-30');
+
+INSERT INTO pessoa VALUES
+(null, 'Mulher Maravilha', '1954-10-30');
+
+INSERT INTO pessoa VALUES 
+(default, 'Homem de Ferro', '1911-05-18');
+
+
+DESCRIBE pessoa;
+
+/*
+CAMPOS NUMÉRICOS:
+NÚMEROS INTEIROS -
+INT 
+TINYINT
+NÚMEROS DECIMAIS -
+FLOAT - 7 CARACTERES: 12345.67
+DOUBLE - 15 CARACTERES: 12345678998.7456
+DECIMAL(5,2) - 32 CARACTERES 
+123,45
+DECIMAL(7,3) - 9874.561
+*/
+
+-- ADICIONAR A COLUNA ALTURA
+
+ALTER TABLE pessoa ADD COLUMN altura FLOAT;
+
+DESCRIBE pessoa;
+
+SELECT*FROM pessoa;
+
+ALTER TABLE pessoa ADD COLUMN salario DECIMAL(10,2);
+
+SELECT*FROM pessoa;
+
+INSERT INTO pessoa (nome, salario) VALUES
+('HULK', 1.99);
+
+SELECT*FROM pessoa;
+
+-- SE A LINHA JÁ EXISTE, EU VOU ATUALIZAR O DADO 
+-- ATUALIZAR O SALÁRIO DA RAYSSA;
+
+UPDATE pessoa SET salario = 50.99
+WHERE idPessoa = 1;
+
+SELECT*FROM pessoa;
+
+  -- SE A LINHA EXISTE, UPDATE, SE NÃO EXISTE, INSERT INTO
+  -- NÃO EXISTE UPDATE SEM WHERE
+  -- NO MYSQL, NO WHERE SEMPRE DEVE SER A CHAVE PRIMÁRIA
+
+-- QUERO EXCLUIR UM CMAPO DA MINHA TABELA
+
+ALTER TABLE pessoa DROP column altura;
+
+-- MODIFICAR O CAMPO NOME PARA VARCHAR (50)
+
+DESCRIBE pessoa;
+
+ALTER TABLE pessoa MODIFY COLUMN nome VARCHAR (50);
+
+DESCRIBE pessoa;
+
+-- RENOMEAR O CAMPO DTNASC DA TABELA
+
+ALTER TABLE pessoa RENAME COLUMN dtNasc TO dataNasc;
+
+SELECT*FROM pessoa;
+
+-- EXCLUIR UMA LINHA DA MINHA TABELA
+
+DELETE from pessoa WHERE idPessoa = 2;
+
+INSERT INTO pessoa (nome, salario) VALUES
+('Homem de Ferro', 1000.98);
+
+-- A PARTIR DE AGORA O AUTO-INCREMENT VAI COMEÇAR POR 1000
+
+ALTER TABLE pessoa AUTO_INCREMENT = 1000;
+
+INSERT INTO pessoa (nome, dataNasc, salario) VALUES
+('Chapolin', '1859-01-01', 0.99);
+
+-- LIMPAR OS DADOS DA TABELA
+-- LIMPA, INCLUSIVE, O AUTO-INCREMENT
+
+TRUNCATE TABLE pessoa;
+
+SELECT*FROM pessoa;
+
+INSERT INTO pessoa (nome) VALUES
+('Homem Aranha');
+
+SELECT*FROM pessoa;
+
+
+
+
