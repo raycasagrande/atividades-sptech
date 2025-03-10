@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body style="background-color: pink;">
+
+        <h1 style="color:blueviolet;">❤Dedos de Mel❤</h1>
+
+        Insira o nome do doce (Abacaxis cristalizados, Delicias Gasosas, Bombons explosivos):
+
+       <input type="text" id="input_doce">
+        
+       <br><br>
+
+       Insira o valor unitário do doce:
+
+
+       <input type="text" id="input_valor">
+       <br><br>
+
+       Insira a quantidade de doces vendidos:
+
+       <input type="text" id="input_quantidade">
+       <br><br>
+
+       <button onclick="docinhos()"><b style="color: deeppink;">Docinhos</b></button>
+       <br><br>
+
+       <div id="mensagem"></div>
+
+    </body>
+    </html>
+</body>
+</html>
+
+<script>
+
+    function docinhos() {
+
+        var doce = (input_doce.value);
+        var valor = Number (input_valor.value);
+        var vendidos = Number (input_quantidade.value);
+        var total = vendidos * valor;
+        var final1 = total * 0.05;
+        var total1 = final1 + total;
+        var final2 = total *0.03;
+        var total2 = final2 + total;
+       
+
+        if (total < 10){
+
+        mensagem.innerHTML = `<i style="color:deeppink"> Obrigado por sua compra na Dedos de Mel, bruxinho. Após sua compra de ${doce}, o valor final ficou em ${total1} galeões, com um acréscimo de ${final1} galeões de taxa de maquininha. Volte sempre!</i>`
+        }
+
+        if (total > 10) {
+
+        mensagem.innerHTML= `<i style="color:green"> Obrigado por sua compra na Dedos de Mel, bruxinho. Após sua compra de ${doce}, o valor final ficou em ${total2} galeões, com um desconto de ${final2} galeões. Volte
+        sempre!</i>`
+        }
+
+        if (total == 10){
+
+        mensagem.innerHTML= `Obrigado por sua compra, bruxinho! Volte sempre e aproveite os seus doces de ${doce}.`
+        }
+
+
+    }
+</script>

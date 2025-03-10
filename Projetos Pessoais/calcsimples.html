@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 style="color:blueviolet"> Calculadora simples </h1>
+    
+    Insira o primeiro número:
+
+    <input type="text" id="input_n1">
+    <br><br>
+
+    Insira o segundo número:
+
+    <input type="text" id="input_n2">
+    <br><br>
+
+    <button onclick="somar()"><b style= "color:green">somar</b></button>
+    
+    <button onclick="subtrair()"><b style="color:deeppink;">subtrair</b></button>
+
+    <button onclick="dividir()"><b style="color:orangered">dividir</b></button>
+
+    <button onclick="multiplicar()"><b style="color:purple;">multiplicar</b></button>
+    <br><br>
+
+    <div id="resultado"></div>
+
+</body>
+</html>
+
+<script>
+
+    
+    function somar() {
+
+        var n1 = Number (input_n1.value);
+        var n2 = Number (input_n2.value);
+        var total1 = n1 + n2;
+
+        resultado.innerHTML += `<b style= "color: green"> O resultado da sua soma é ${total1}.</b> <br> <br>`
+    }
+
+    function subtrair() {
+        
+        var n1 = Number (input_n1.value);
+        var n2 = Number (input_n2.value);
+        var total2 = n1 - n2;
+
+     resultado.innerHTML += `<b style= "color:deeppink">O resultado da sua subtração é ${total2}.</b> <br> <br>`
+    }
+
+    function dividir() {
+    
+
+        var n1 = Number (input_n1.value);
+        var n2 = Number (input_n2.value);
+        var total3 = n1 / n2;
+
+        resultado.innerHTML += `<b style= "color: orangered">O resultado da sua divisão é ${total3}.</b> <br> <br>`
+    }
+
+    function multiplicar() {
+
+        var n1 = Number (input_n1.value);
+        var n2 = Number (input_n2.value);
+        var total4 = n1 * n2;
+
+        resultado.innerHTML += `<b style= "color: purple">O resultado da sua multiplicação é ${total4}. </b> <br> <br>`
+    }
+</script>
